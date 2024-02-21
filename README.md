@@ -1,13 +1,8 @@
 # HentaisTube-Downloader
 Baixe episódios do site: [HentaisTube](https://www.hentaistube.com)
 
-1209853371117346816
 [![Views](https://hits.sh/github.com/e43bhtd/hits.svg)](https://github.com/e43b/HentaisTube-Downloader/)
-![Discord Shield](https://discordapp.com/api/guilds/1209853371117346816/widget.png?style=shield)
-![Discord Banner 1](https://discordapp.com/api/guilds/1209853371117346816/widget.png?style=banner1)
-![Discord Banner 2](https://discordapp.com/api/guilds/1209853371117346816/widget.png?style=banner2)
-![Discord Banner 3](https://discordapp.com/api/guilds/1209853371117346816/widget.png?style=banner3)
-![Discord Banner 4](https://discordapp.com/api/guilds/1209853371117346816/widget.png?style=banner4)
+[Discord](https://discord.gg/33BxkYBW)
 
 Este script oferece uma maneira prática de baixar episódios do site HentaaisTube.com. Ele extrai os links de download disponibilizados pela equipe do site e os utiliza para baixar os vídeos diretamente do servidor do [Mediafire](https://www.mediafire.com/). Embora o script não seja capaz de baixar vídeos hospedados no [Google Drive](https://drive.google.com/), ele salva os links de download para facilitar o download manualmente.
 
