@@ -16,19 +16,11 @@ Este script oferece uma maneira prática de baixar episódios do site HentaaisTu
 ## Como usar
 
 1. Clone o repositório ou baixe o arquivo ZIP.
-2. Instale as dependências necessárias usando `pip install -r requirements.txt`.
-3. Execute o script principal `animestube_downloader.py`.
-4. Siga as instruções para escolher entre baixar vários episódios de uma obra ou um episódio específico.
+2. cd hscript
+3. Instale as dependências necessárias usando `pip install -r requirements.txt`.
+4. Execute o script principal `main.py`.
+5. Siga as instruções para escolher entre baixar vários episódios de uma obra ou um episódio específico.
 
 ## Contribuição
 
 Sinta-se à vontade para contribuir com novos recursos, correções de bugs ou melhorias gerais. Basta abrir uma nova issue ou enviar um pull request.
-
-## Agradecimentos
-
-Este script foi desenvolvido com base no projeto original de e42b. Agradecemos a ele por fornecer a base para esta versão aprimorada.
-
-## Licença
-
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
-
