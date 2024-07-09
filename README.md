@@ -19,9 +19,9 @@ Este script oferece uma maneira prática de baixar episódios do site HentaisTub
 ## Como usar
 
 1. Clone o repositório ou baixe o arquivo ZIP.
-2. cd hscript
+2. Acesse a pasta `cd hscript`
 3. Instale as dependências necessárias usando `pip install -r requirements.txt`.
-4. Execute o script principal `main.py`.
+4. Execute o script principal `Python main.py`.
 5. Siga as instruções para escolher entre baixar vários episódios de uma obra ou um episódio específico.
 
 ## Contribuição
