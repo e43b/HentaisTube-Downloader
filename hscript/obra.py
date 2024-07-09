@@ -53,48 +53,51 @@ def baixar_video(link, episode_title, directory):
         print("Link não suportado:", link)
 
 # Link da página principal com a lista de episódios
-url_principal = input("Digite o LInk da Obra: ")
+url_principal = input("Digite o Link da Obra: ")
 
 # Extrair parte relevante do URL principal para o nome da pasta
 folder_name = url_principal.split("/")[-2][:45]
 
 response_principal = requests.get(url_principal)
 soup_principal = BeautifulSoup(response_principal.content, "html.parser")
-episodes_section = soup_principal.find("div", class_="pagAniListaContainer")
-episodes_links = episodes_section.find_all("a")
+episodes_section = soup_principal.find("ul", class_="pagAniListaContainer")
+if episodes_section:
+    episodes_links = episodes_section.find_all("a")
 
-# Diretório de destino para salvar os arquivos
-directory = folder_name
+    # Diretório de destino para salvar os arquivos
+    directory = folder_name
 
-# Iterar sobre os links dos episódios
-for episode_link in episodes_links:
-    episode_title = episode_link.get_text()
-    episode_url = episode_link["href"]
+    # Iterar sobre os links dos episódios
+    for episode_link in episodes_links:
+        episode_title = episode_link.get_text()
+        episode_url = episode_link["href"]
 
-    # Procurar pelos links do MediaFire e do Google Drive para o episódio atual
-    mediafire_links, drive_links = encontrar_links(episode_url)
+        # Procurar pelos links do MediaFire e do Google Drive para o episódio atual
+        mediafire_links, drive_links = encontrar_links(episode_url)
 
-    print("Episódio:", episode_title)
-    print("Link:", episode_url)
+        print("Episódio:", episode_title)
+        print("Link:", episode_url)
 
-    # Baixar os arquivos do MediaFire
-    for mediafire_link in mediafire_links:
-        baixar_video(mediafire_link['href'], episode_title, directory)
+        # Baixar os arquivos do MediaFire
+        for mediafire_link in mediafire_links:
+            baixar_video(mediafire_link['href'], episode_title, directory)
 
-    # Salvar os links do Google Drive em um arquivo txt
-    if drive_links:
-        # Cria o diretório de destino se ainda não existir
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        # Salvar os links do Google Drive em um arquivo txt
+        if drive_links:
+            # Cria o diretório de destino se ainda não existir
+            if not os.path.exists(directory):
+                os.makedirs(directory)
 
-        # Define o caminho completo para salvar o arquivo txt
-        txt_file_path = os.path.join(directory, f"{episode_title}_google_drive_links.txt")
+            # Define o caminho completo para salvar o arquivo txt
+            txt_file_path = os.path.join(directory, f"{episode_title}_google_drive_links.txt")
 
-        # Escreve os links no arquivo txt
-        with open(txt_file_path, 'w') as txt_file:
-            for link in drive_links:
-                txt_file.write(link['href'] + '\n')
+            # Escreve os links no arquivo txt
+            with open(txt_file_path, 'w') as txt_file:
+                for link in drive_links:
+                    txt_file.write(link['href'] + '\n')
 
-        print(f"Os links do Google Drive para o episódio {episode_title} foram salvos em: {txt_file_path}\n")
-    else:
-        print("Nenhum link do Google Drive encontrado.\n")
+            print(f"Os links do Google Drive para o episódio {episode_title} foram salvos em: {txt_file_path}\n")
+        else:
+            print("Nenhum link do Google Drive encontrado.\n")
+else:
+    print("Nenhuma seção de episódios encontrada.")
